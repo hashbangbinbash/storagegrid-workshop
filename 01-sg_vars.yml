@@ -1,0 +1,8 @@
+    grid_admin_base_url: https://dc1-adm1.demo.netapp.com/
+    grid_username: myadminaccount
+    grid_password: netapp123
+    tenant_username: root
+    tenant_password: changeme
+    users:
+      - bill
+      - ted
