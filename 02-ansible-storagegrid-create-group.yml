@@ -3,7 +3,7 @@
   collections:
     - netapp.storagegrid
   vars_files:
-    /root/git/storagegrid-workshop/sg_vars.yml
+    /root/git/storagegrid-workshop/01-sg_vars.yml
   gather_facts: no
   tasks:
   - name: Get grid authorization token
