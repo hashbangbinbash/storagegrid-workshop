@@ -6,7 +6,7 @@
     # This section contains the tenant specific information
     tenant_username: root
     tenant_password: netapp01
-    tenant_name: sgworkshop
+    tenant_name: sgworkshop-test
     tenant_bucket:
       - ansible-bucket
       - storagegrid-integration
@@ -14,7 +14,7 @@
     tenant_users:
       - bill
       - ted
-    tenant_group: "ansible-group"
+    tenant_group: ansible-group
     tenant_group_description: "Ansible Group"
     tenant_platform_services: true
     tenant_use_own_identity_source: false
