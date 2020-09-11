@@ -20,7 +20,7 @@
       validate_certs: false
     register: auth
  
-   - name: Obtain StorageGRID Account Token
+  - name: Obtain StorageGRID Account Token
     nac_sg_grid_account:
       api_url: "{{ grid_admin_base_url }}"
       auth_token: "{{ auth.json.data }}"
