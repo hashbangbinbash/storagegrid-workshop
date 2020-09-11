@@ -6,19 +6,19 @@
     /root/git/storagegrid-workshop/01-sg_vars.yml
   gather_facts: no
   tasks:
-  # - name: Get grid authorization token
-    # uri:
-    #   url: "{{ grid_admin_base_url }}/api/v3/authorize"
-    #   method: POST
-    #   body: {
-    #     "username": "{{ grid_username }}",
-    #     "password": "{{ grid_password }}",
-    #     "cookie": false,
-    #     "csrfToken": false
-    #   }
-    #   body_format: json
-    #   validate_certs: false
-    # register: auth
+  - name: Get grid authorization token
+    uri:
+      url: "{{ grid_admin_base_url }}/api/v3/authorize"
+      method: POST
+      body: {
+        "username": "{{ grid_username }}",
+        "password": "{{ grid_password }}",
+        "cookie": false,
+        "csrfToken": false
+      }
+      body_format: json
+      validate_certs: false
+    register: auth
  
 
   - name: Get user authorization token
@@ -42,7 +42,7 @@
       auth_token: "{{ auth.json.data }}"
       validate_certs: false
       state: present
-      display_name: ansible-group
+      display_name: "{{ tenant_group_description }}"
       unique_name: group/"{{ tenant_group }}"
       management_policy:
         manage_all_containers: true
