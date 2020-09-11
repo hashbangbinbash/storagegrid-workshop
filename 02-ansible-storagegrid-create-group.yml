@@ -57,7 +57,7 @@
       validate_certs: false
       state: present
       display_name: "{{ tenant_group_description }}"
-      unique_name: group/"{{ tenant_group }}"
+      unique_name: "group/{{ tenant_group }}"
       management_policy:
         manage_all_containers: true
         manage_endpoints: true
