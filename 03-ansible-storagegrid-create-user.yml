@@ -59,21 +59,7 @@
       full_name: "{{ item }}"
       unique_name: "user/{{ item }}"
       member_of: "group/{{ tenant_group }}"
-    with_items: "{{ users }}"
- 
-  - name: Create a s3 key for our users
-    nac_sg_org_user_s3_key:
-      api_url: "{{ grid_admin_base_url }}"
-      auth_token: "{{ auth.json.data }}"
-      validate_certs: false
-      state: present
-      unique_user_name: "user/{{ item }}"
     with_items: "{{ tenant_users }}"
  
-  - name: Create a s3 bucket
-    nac_sg_org_container:
-      api_url: "{{ grid_admin_base_url }}"
-      auth_token: "{{ auth.json.data }}"
-      validate_certs: false
-      state: present
-      name: thepub-bucket1
+
+ 
