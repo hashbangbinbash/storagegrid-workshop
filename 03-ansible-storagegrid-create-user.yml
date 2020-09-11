@@ -19,6 +19,21 @@
       body_format: json
       validate_certs: false
     register: auth
+  
+  - name: Obtain StorageGRID Account Token
+    nac_sg_grid_account:
+      api_url: "{{ grid_admin_base_url }}"
+      auth_token: "{{ auth.json.data }}"
+      validate_certs: false
+      state: present
+      name: "{{ tenant_name }}"
+      protocol: s3
+      management: true
+      use_own_identity_source: "{{ tenant_use_own_identity_source }}"
+      allow_platform_services: "{{ tenant_platform_services }}"
+      password: "{{ tenant_password }}"
+      quota_size: 100
+    register: account
  
   - name: Get user authorization token
     uri:
