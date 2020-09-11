@@ -1,0 +1,94 @@
+---
+- hosts: localhost
+  collections:
+    - netapp.storagegrid
+  vars_files:
+    /root/git/storagegrid-workshop/01-sg_vars.yml
+  gather_facts: no
+  tasks:
+  - name: Get grid authorization token
+    uri:
+      url: "{{ grid_admin_base_url }}/api/v3/authorize"
+      method: POST
+      body: {
+        "username": "{{ grid_username }}",
+        "password": "{{ grid_password }}",
+        "cookie": false,
+        "csrfToken": false
+      }
+      body_format: json
+      validate_certs: false
+    register: auth
+ 
+  - name: Create a StorageGRID Tenant
+    nac_sg_grid_account:
+      api_url: "{{ grid_admin_base_url }}"
+      auth_token: "{{ auth.json.data }}"
+      validate_certs: false
+      state: present
+      name: thePub
+      protocol: s3
+      management: true
+      use_own_identity_source: false
+      allow_platform_services: false
+      password: "{{ tenant_password }}"
+      quota_size: 100
+    register: account
+ 
+  - name: Get user authorization token
+    uri:
+      url: "{{ grid_admin_base_url }}/api/v3/authorize"
+      method: POST
+      body: {
+        "accountId": "{{ account.resp.id }}",
+        "username": "{{ tenant_username }}",
+        "password": "{{ tenant_password }}",
+        "cookie": false,
+        "csrfToken": false
+      }
+      body_format: json
+      validate_certs: false
+    register: auth
+ 
+  - name: Create a group
+    nac_sg_org_group:
+      api_url: "{{ grid_admin_base_url }}"
+      auth_token: "{{ auth.json.data }}"
+      validate_certs: false
+      state: present
+      display_name: thePub-Patrons
+      unique_name: group/thepub-patrons
+      management_policy:
+        manage_all_containers: true
+        manage_endpoints: true
+        manage_own_s3_credentials: false
+        root_access: false
+      s3_policy: {"Statement":[{"Effect":"Allow","Action":"s3:*","Resource":"arn:aws:s3:::*"}]}
+ 
+  - name: Create users
+    nac_sg_org_user:
+      api_url: "{{ grid_admin_base_url }}"
+      auth_token: "{{ auth.json.data }}"
+      validate_certs: false
+      state: present
+      full_name: "{{ item }}"
+      unique_name: "user/{{ item }}"
+      member_of: "group/thepub-patrons"
+    with_items: "{{ users }}"
+ 
+  - name: Create a s3 key for our users
+    nac_sg_org_user_s3_key:
+      api_url: "{{ grid_admin_base_url }}"
+      auth_token: "{{ auth.json.data }}"
+      validate_certs: false
+      state: present
+      unique_user_name: "user/{{ item }}"
+    with_items: "{{ users }}"
+ 
+  - name: Create a s3 bucket
+    nac_sg_org_container:
+      api_url: "{{ grid_admin_base_url }}"
+      auth_token: "{{ auth.json.data }}"
+      validate_certs: false
+      state: present
+      name: thepub-bucket1

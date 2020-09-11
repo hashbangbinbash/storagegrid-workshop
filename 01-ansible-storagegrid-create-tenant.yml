@@ -3,7 +3,7 @@
   collections:
     - netapp.storagegrid
   vars_files:
-    /root/git/sg_vars.yaml
+    /root/git/storagegrid-workshop/01-sg_vars.yml
   gather_facts: no
   tasks:
   - name: Get grid authorization token
@@ -26,27 +26,27 @@
       auth_token: "{{ auth.json.data }}"
       validate_certs: false
       state: present
-      name: pec-workshop
+      name: "{{ tenant_name }}"
       protocol: s3
       management: true
-      use_own_identity_source: false
-      allow_platform_services: false
+      use_own_identity_source: "{{ tenant_use_own_identity_source }}"
+      allow_platform_services: "{{ tenant_platform_services }}"
       password: "{{ tenant_password }}"
       quota_size: 100
     register: account
  
-  - name: Get user authorization token
-    uri:
-      url: "{{ grid_admin_base_url }}/api/v3/authorize"
-      method: POST
-      body: {
-        "accountId": "{{ account.resp.id }}",
-        "username": "{{ tenant_username }}",
-        "password": "{{ tenant_password }}",
-        "cookie": false,
-        "csrfToken": false
-      }
-      body_format: json
-      validate_certs: false
-    register: auth
+  # - name: Get user authorization token
+  #   uri:
+  #     url: "{{ grid_admin_base_url }}/api/v3/authorize"
+  #     method: POST
+  #     body: {
+  #       "accountId": "{{ account.resp.id }}",
+  #       "username": "{{ tenant_username }}",
+  #       "password": "{{ tenant_password }}",
+  #       "cookie": false,
+  #       "csrfToken": false
+  #     }
+  #     body_format: json
+  #     validate_certs: false
+  #   register: auth
  

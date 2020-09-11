@@ -1,8 +1,19 @@
+    # This top section contains the information required for connecting to the API.
+    # The base url is used for both tenant and grid operations
     grid_admin_base_url: https://dc1-adm1.demo.netapp.com/
     grid_username: root
     grid_password: netapp01
+    # This section contains the tenant specific information
     tenant_username: root
-    tenant_password: changeme
-    users:
+    tenant_password: netapp01
+    tenant_name: sgworkshop
+    tenant_bucket:
+      - ansible-bucket
+      - storagegrid-integration
+      - bucket-elasticsearch
+    tenant_users:
       - bill
       - ted
+    tenant_group: "{{ tenant_ansible_group }}"
+    tenant_platform_services: true
+    tenant_use_own_identity_source: false
