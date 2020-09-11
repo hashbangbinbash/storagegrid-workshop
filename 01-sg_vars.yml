@@ -14,7 +14,7 @@
     tenant_users:
       - bill
       - ted
-    tenant_group: "tenant_ansible_group"
+    tenant_group: "ansible-group"
     tenant_group_description: "Ansible Group"
     tenant_platform_services: true
     tenant_use_own_identity_source: false
