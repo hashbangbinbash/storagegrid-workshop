@@ -1,0 +1,4 @@
+sg s3api put-object --bucket bucket-elasticsearch \
+--metadata project=topsecret,costcode=00001 \
+--key  mynewobject.txt \
+--body mynewobject.txt

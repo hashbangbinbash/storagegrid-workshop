@@ -1,0 +1,7 @@
+# Alias for Storagegrid
+sg_cmd() {
+  CMD="aws ${@:1} --profile storagegridlab --endpoint-url http://192.168.0.170:10443"
+  echo "Executing \"${CMD}\""
+  eval ${CMD}
+}
+alias sg=sg_cmd

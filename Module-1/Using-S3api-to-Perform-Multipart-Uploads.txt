@@ -1,0 +1,29 @@
+openssl md5 -binary StorageGRID-11.3.0.zip | base64
+split -b 1024m StorageGRID-11.3.0.zip part-file-
+openssl md5 -binary part-file-aa | base64
+openssl md5 -binary part-file-ab | base64
+openssl md5 -binary part-file-ac | base64
+sg s3api create-multipart-upload --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --metadata KeyName1=<original-object-md5>
+
+sg s3api upload-part --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --part-number 1 --body part-file-aa --upload-id <upload-id-from-previous-step>
+sg s3api upload-part --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --part-number 2 --body part-file-ab --upload-id <upload-id-from-previous-step>
+sg s3api upload-part --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --part-number 3 --body part-file-ac --upload-id <upload-id-from-previous-step>
+sg s3api list-parts --bucket bucket-elastic-search --key StorageGRID-11.3.0.zip --upload-id <upload-id-from-previous-step>
+
+Upload.json file example
+{
+    "Parts": [{
+        "ETag": "edc19772578371cc847b89eae5c84ad1",
+        "PartNumber":1
+    },
+    {
+        "ETag": "3fcc862080556901f7f1a8e616f00f8f",
+        "PartNumber":2
+    },
+    {
+        "ETag": "e20c029cc5b7b87543c7e3ed4c4dada8",
+        "PartNumber":3
+    }]
+}
+# Complete multipart upload
+sg s3api complete-multipart-upload --multipart-upload file://upload.json --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --upload-id <upload-id>
