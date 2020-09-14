@@ -1,0 +1,35 @@
+yum install python3
+pip3 install boto3
+
+#First we need to import boto3 into the session
+import boto3
+# This next section sets up the session information that we are going to use
+# Notice how we are usin the same profile we configured earlier for the credentials
+session = boto3.session.Session(profile_name='storagegridlab')
+endpoint = 'http://192.168.0.170:10443' 
+# Set the boto3 resource to use S3. Boto itself can be used for other AWS services
+# Resources represent an object-oriented interface to Amazon Web Services (AWS). 
+# They provide a higher-level abstraction than the raw, low-level calls made by service clients. 
+# To use resources, you invoke the resource() method of a Session and pass in a service name:
+s3 = session.resource(service_name='s3', endpoint_url=endpoint, verify=False)
+# Now let’s List all buckets for S3 account 
+# If you are using the Python3 CLI to run commands interactively, 
+# remember that you need 4 spaces in the next line following a 
+# for statement and a : at the end of the for line
+for bucket in s3.buckets.all():
+    print(bucket.name) 
+# Now that we know this works. 
+# Create a new bucket using the create() method. 
+# Call it whatever you wish
+var_bucket_name = "neils-bucket"
+s3.Bucket(var_bucket_name).create()
+# Next we are going to create a simple object called ‘new-python-object’
+# and upload it into the bucket-elasticsearch bucket
+var_bucket = "bucket-elasticsearch"
+var_obj = s3.Object(var_bucket, 'new-python-object')
+var_obj.put(Body='Hello World')
+# Finally, let's create a new object and provide some metadata 
+# alongside the object
+var_metadata = {'company': 'NetApp', 'project': 'topsecret'}
+var_obj2 = s3.Object(var_bucket, 'my-topsecret-object')
+var_obj2.put(Body='This is my top secret object and must be retained forever', Metadata=var_metadata)
