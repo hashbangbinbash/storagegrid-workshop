@@ -1,0 +1,38 @@
+Commands for testing Elastics Search
+
+$ curl -XGET 'https://linux1'
+{
+  "name" : "esmaster1",
+  "cluster_name" : "esprd",
+  "cluster_uuid" : "ABC6pGHgRWGhooEjvIElkA",
+  "version" : {
+    "number" : "7.4.2",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "7a013de",
+    "build_date" : "2019-12-07T14:04:00.380842Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.0.0",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+$ curl -XGET 'https://linux1:9200/_cluster/health?pretty'
+{
+  "cluster_name" : "esprd",
+  "status" : "green",
+  "timed_out" : false,
+  "number_of_nodes" : 8,
+  "number_of_data_nodes" : 3,
+  "active_primary_shards" : 0, "active_shards" : 0,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 0,
+  "delayed_unassigned_shards" : 0,
+  "number_of_pending_tasks" : 0,
+  "number_of_in_flight_fetch" : 0,
+  "task_max_waiting_in_queue_millis" : 0,
+  "active_shards_percent_as_number" : 100.0
+}
