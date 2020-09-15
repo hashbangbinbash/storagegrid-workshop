@@ -1,5 +1,28 @@
 Commands for testing Elastics Search
 
+curl http://192.168.0.61:9200
+{
+  "name" : "linux1",
+  "cluster_name" : "esstoragegrid",
+  "cluster_uuid" : "_na_",
+  "version" : {
+    "number" : "7.5.0",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "e9ccaed468e2fac2275a3761849cbee64b39519f",
+    "build_date" : "2019-11-26T01:06:52.518245Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.3.0",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+
+
+
+
 $ curl -XGET 'https://linux1'
 {
   "name" : "esmaster1",
