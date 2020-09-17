@@ -1,1 +1,2 @@
 sg s3api put-bucket-lifecycle-configuration --bucket bucket-elasticsearch --lifecycle-configuration file://bucket-lifecycle-policy.json
+sg s3api get-bucket-lifecycle-configuration --bucket bucket-elasticsearch

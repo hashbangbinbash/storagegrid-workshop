@@ -11,6 +11,9 @@
       - ansible-bucket
       - storagegrid-integration
       - bucket-elasticsearch
+      - gold
+      - silver 
+      - bronze
     tenant_users:
       - bill
       - ted
