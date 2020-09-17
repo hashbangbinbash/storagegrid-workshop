@@ -1,0 +1,42 @@
+{
+	"Rules": [
+        {
+		    "ID": "rule1",
+			"Filter": {
+                "And": {
+                    "Prefix": "category1/",
+                    "Tags": [
+                        {
+                            "Key": "key2",
+							"Value": "tag2"
+                        }
+                    ]
+                }
+            },
+			"Expiration": {
+                "Date": "2020-10-22T00:00:00Z"
+            },
+            "Status": "Enabled"
+        },
+		{
+            "ID": "bucket-policy-delete-1day",
+			"Filter": {
+                "Prefix": "folder1/"
+            },
+			"Expiration": {
+                "Days": 1
+            },
+            "Status": "Enabled"
+        },
+		{
+            "ID": "bucket-policy-delete-non-current-5d",
+			"Filter": {
+                "Prefix": "category3/"
+            },
+			"NoncurrentVersionExpiration": {
+                "NoncurrentDays": 5
+            },
+            "Status": "Enabled"
+        }
+    ]
+}
