@@ -1,5 +1,5 @@
-mkdir /root/home/elasticsearch
-cd /root/home/elasticsearch
+mkdir /root/elasticsearch
+cd /root/elasticsearch
 curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.0-x86_64.rpm
 sudo rpm -i elasticsearch-7.8.0-x86_64.rpm
 
