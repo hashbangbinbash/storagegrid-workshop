@@ -32,7 +32,7 @@
       use_own_identity_source: "{{ tenant_use_own_identity_source }}"
       allow_platform_services: "{{ tenant_platform_services }}"
       password: "{{ tenant_password }}"
-      quota_size: 100
+      quota_size: "{{ tenant_quota }}"
     register: account
  
   # - name: Get user authorization token

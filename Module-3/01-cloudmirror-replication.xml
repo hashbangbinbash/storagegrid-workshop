@@ -1,0 +1,11 @@
+<ReplicationConfiguration>
+    <Role></Role>
+    <Rule>
+        <Status>Enabled</Status>
+        <Prefix>replicated</Prefix>
+        <Destination>
+           <Bucket>urn:sgws:s3:::cloudmirror-destination</Bucket>
+           <StorageClass>STANDARD</StorageClass>
+         </Destination>
+     </Rule>
+</ReplicationConfiguration>

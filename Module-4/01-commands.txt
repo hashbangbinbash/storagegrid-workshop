@@ -1,0 +1,10 @@
+# Commands for dc1-adm
+su -
+storagegrid-status
+cd /usr/local/sbin/
+sudo ./config_nfs.rb
+
+# Commands for linux1
+mkdir /mnt/sg-audit
+sudo mount -t nfs -o vers=3,hard 192.168.0.10:/var/local/audit/export   /mnt/sg-audit
+mount | grep audit

@@ -1,0 +1,9 @@
+gunzip s3tester-v2.1.0-linux-x64.tar.gz
+tar -xvf s3tester-v2.1.0-linux-x64.tar
+cd s3tester-v2.1.0-linux-x64
+./s3tester -concurrency 1 -retries 5 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -bucket gold 
+./s3tester -concurrency 1 -retries 5 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -bucket silver
+./s3tester -concurrency 1 -retries 5 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -bucket bronze
+
+./s3tester -concurrency 1 -retries 0 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -bucket gold 
+
