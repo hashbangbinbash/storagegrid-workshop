@@ -4,4 +4,5 @@ cp /root/git/storagegrid-workshop/Module-4/logstash-pipeline-* /root/logstash/
 cd /root/logstash
 /usr/share/logstash/bin/logstash -f logstash-pipeline-01.conf --config.test_and_exit
 /usr/share/logstash/bin/logstash -f logstash-pipeline-01.conf 
-
+/usr/share/logstash/bin/logstash -f logstash-pipeline-02.conf 
+curl -X GET "192.168.0.61:9200/_cat/indices?v" -H 'Content-Type: application/json'
