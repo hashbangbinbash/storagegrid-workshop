@@ -5,6 +5,6 @@ mkdir /root/kibana
 cd /root/kibana
 curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-7.8.0-linux-x86_64.tar.gz
 tar xzvf kibana-7.8.0-linux-x86_64.tar.gz
-cd kibana-7.8.0-linux-x86_64/
+cd /root/kibana/kibana-7.8.0-linux-x86_64/
 cp /root/git/storagegrid-workshop/Module-4/kibana.yml /root/kibana/kibana-7.8.0-linux-x86_64/config/kibana.yml
 ./bin/kibana --allow-root &
