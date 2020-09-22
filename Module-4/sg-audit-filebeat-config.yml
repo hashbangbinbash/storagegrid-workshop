@@ -1,0 +1,7 @@
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /mnt/sg-audit/audit.log 
+output.logstash:
+  hosts: ["192.168.0.61:5044"]

@@ -1,0 +1,9 @@
+sudo yum install -y java-11-openjdk-devel
+java -version
+echo $JAVA_HOME
+which java
+sudo cp /root/git/storagegrid-workshop/Module-4/.bashrc /root/.bashrc
+sudo rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+sudo cp /root/git/storagegrid-workshop/Module-4/logstash.repo /etc/yum.repos.d
+sudo yum install -y logstash
+cd /usr/share/logstash
