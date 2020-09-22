@@ -2,4 +2,8 @@ mkdir /root/elasticsearch
 cd /root/elasticsearch
 curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.8.0-x86_64.rpm
 sudo rpm -i elasticsearch-7.8.0-x86_64.rpm
-
+cp /etc/elasticsearch/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml.bak
+cp /root/git/storagegrid-workshop/Module-4/etc/elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
+sudo service elasticsearch start
+curl http://192.168.0.61:9200
+    
