@@ -1,0 +1,13 @@
+curl -XPUT 192.168.0.61:9200/storagegrid-search?pretty
+urn:demo:es:::demo/storagegrid-search/all
+# Bucket Search Configuration XML
+<MetadataNotificationConfiguration>
+    <Rule>
+        <ID>Rule-1</ID>
+        <Status>Enabled</Status>
+        <Prefix></Prefix>
+        <Destination>
+           <Urn>urn:demo:es:::demo/storagegrid-search/all</Urn>
+        </Destination>
+    </Rule>
+</MetadataNotificationConfiguration>
