@@ -1,4 +1,4 @@
-    # This top section contains the information required for connecting to the API.
+    # This top section contains the  connection information to the API.
     # The base url is used for both tenant and grid operations
     grid_admin_base_url: https://dc1-adm1.demo.netapp.com/
     grid_username: root
@@ -6,7 +6,7 @@
     # This section contains the tenant specific information
     tenant_username: root
     tenant_password: netapp01
-    tenant_name: sgworkshop-test
+    tenant_name: storagegrid-workshop
     tenant_quota: 200
     tenant_bucket:
       - ansible-bucket
