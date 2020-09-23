@@ -1,0 +1,20 @@
+yum install -y python-pip
+pip install --upgrade pip
+mkdir ~/.aws
+
+[storagegridlab]
+aws_access_key_id = <S3-Access-Key>
+aws_secret_access_key = <S3-secret-key>
+
+aws s3 ls –profile storagegridlab –endpoint-url http://192.168.0.170:10443 
+
+
+# Alias for Storagegrid
+sg_cmd() {
+  CMD="aws ${@:1} --profile storagegridlab --endpoint-url http://192.168.0.170:10443"
+  echo "Executing \"${CMD}\""
+  eval ${CMD}
+}
+alias sg=sg_cmd
+
+source ~/.bashrc
