@@ -1,0 +1,9 @@
+sg s3api get-object-tagging --bucket bucket-elasticsearch --key mynewobject.txt
+
+
+
+sg s3api put-object-tagging --bucket bucket-elasticsearch --key mynewobject.txt --tagging TagSet=[{Key=string,Value=string},{Key=string,Value=string}]
+sg s3api put-object-tagging \
+    --bucket bucket-elasticsearch \
+    --key mynewobject.txt \
+    --tagging '{"TagSet": [{ "Key": "designation", "Value": "confidential" }]}'

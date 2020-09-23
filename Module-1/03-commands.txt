@@ -46,3 +46,5 @@ var_obj.put(Body='Hello World')
 var_metadata = {'company': 'NetApp', 'project': 'topsecret'}
 var_obj2 = s3.Object(var_bucket, 'my-topsecret-object')
 var_obj2.put(Body='This is my top secret object and must be retained forever', Metadata=var_metadata)
+
+
