@@ -18,3 +18,11 @@ sg_cmd() {
 alias sg=sg_cmd
 
 source ~/.bashrc
+
+vi mynewobject.txt
+
+sg s3api put-object --bucket bucket-elasticsearch \
+--metadata project=topsecret,costcode=00001 \
+--key  mynewobject.txt \
+--body mynewobject.txt
+
