@@ -27,5 +27,8 @@ Upload.json file example
         "PartNumber":3
     }]
 }
+
+
 # Complete multipart upload
+sg s3api complete-multipart-upload --multipart-upload file:// /root/git/storagegrid-workshop/Module-1/upload.json --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --upload-id <upload-id>
 sg s3api complete-multipart-upload --multipart-upload file://upload.json --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --upload-id <upload-id>
