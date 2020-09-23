@@ -3,8 +3,10 @@ split -b 1024m StorageGRID-11.3.0.zip part-file-
 openssl md5 -binary part-file-aa | base64
 openssl md5 -binary part-file-ab | base64
 openssl md5 -binary part-file-ac | base64
-sg s3api create-multipart-upload --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --metadata KeyName1=<original-object-md5>
 
+
+
+sg s3api create-multipart-upload --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --metadata KeyName1=<original-object-md5>
 sg s3api upload-part --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --part-number 1 --body part-file-aa --upload-id <upload-id-from-previous-step>
 sg s3api upload-part --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --part-number 2 --body part-file-ab --upload-id <upload-id-from-previous-step>
 sg s3api upload-part --bucket bucket-elasticsearch --key StorageGRID-11.3.0.zip --part-number 3 --body part-file-ac --upload-id <upload-id-from-previous-step>
