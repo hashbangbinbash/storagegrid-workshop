@@ -2,5 +2,5 @@ cd  /root/git/storagegrid-workshop/Module-0
 ansible-playbook 01-ansible-storagegrid-create-tenant.yml
 ansible-playbook 02-ansible-storagegrid-create-group.yml
 ansible-playbook 03-ansible-storagegrid-create-user.yml
-ansible-playbook 04-ansible-storagegrid-create-keys.yml
+ansible-playbook 04-ansible-storagegrid-create-keys.yml -v 
 ansible-playbook 05-ansible-storagegrid-create-bucket.yml

@@ -41,7 +41,7 @@
       auth_token: "{{ auth.json.data }}"
       validate_certs: false
       state: present
-      name: thePub
+      name: "{{ tenant_name }}"
       protocol: s3
       management: true
       use_own_identity_source: false
