@@ -1,5 +1,8 @@
-yum install python3
+yum install -y python3
 pip3 install boto3
+
+#Enter to bring up the interactive console
+python3 
 
 #First we need to import boto3 into the session
 import boto3
@@ -21,12 +24,13 @@ s3 = session.resource(service_name='s3', endpoint_url=endpoint, verify=False)
 # for statement and a : at the end of the for line
 for bucket in s3.buckets.all():
     print(bucket.name) 
+# Press enter to end the for statement
 
 
 # Now that we know this works. 
 # Create a new bucket using the create() method. 
 # Call it whatever you wish
-var_bucket_name = "neils-bucket"
+var_bucket_name = "my-python3-bucket"
 s3.Bucket(var_bucket_name).create()
 
 
