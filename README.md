@@ -1,1 +1,2 @@
 # storagegrid-workshop
+This git respository is for the Partner Enablement workshop for StorageGRID Integration with 11.4. It contains all of the exercises to implement a variety of features. It is a public repository and is free to use for colleagues. Just let me know beforehand
