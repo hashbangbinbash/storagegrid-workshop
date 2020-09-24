@@ -1,9 +1,14 @@
 gunzip /root/git/storagegrid-workshop/Module-2/s3tester-v2.1.0-linux-x64.tar.gz
 tar -xvf /root/git/storagegrid-workshop/Module-2/s3tester-v2.1.0-linux-x64.tar
-cd /root/git/storagegrid-workshop/Module-2/s3tester-v2.1.0-linux-x64
+cd s3tester-v2.1.0-linux-x64
 ./s3tester -concurrency 1 -retries 5 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -bucket gold 
 ./s3tester -concurrency 1 -retries 5 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -bucket silver
 ./s3tester -concurrency 1 -retries 5 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -bucket bronze
 
 ./s3tester -concurrency 1 -retries 0 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -bucket gold 
+
+./s3tester -concurrency 10 -retries 5 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -size 3072000 -bucket gold 
+./s3tester -concurrency 10 -retries 5 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -size 3072000 -bucket silver
+./s3tester -concurrency 10 -retries 5 -duration 60 -profile storagegridlab -endpoint http://192.168.0.170:10443 -size 3072000 -bucket bronze
+
 
