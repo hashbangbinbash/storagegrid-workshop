@@ -2,7 +2,7 @@ sudo yum install -y java-11-openjdk-devel
 java -version
 echo $JAVA_HOME
 which java
-sudo cp /root/git/storagegrid-workshop/Module-4/.bashrc /root/.bashrc
+sudo cp /root/git/storagegrid-workshop/Module-3/.bashrc /root/.bashrc
 source ~/.bashrc
 echo $JAVA_HOME
 sudo rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch

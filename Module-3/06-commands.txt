@@ -2,5 +2,5 @@ mkdir /root/filebeat
 cd /root/filebeat
 curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.8.0-x86_64.rpm
 sudo rpm -vi filebeat-7.8.0-x86_64.rpm
-sudo cp /root/git/storagegrid-workshop/Module-4/sg-audit-filebeat-config.yml /root/filebeat/sg-audit-filebeat-config.yml
+sudo yes | cp /root/git/storagegrid-workshop/Module-3/sg-audit-filebeat-config.yml /root/filebeat/sg-audit-filebeat-config.yml
 sudo /usr/share/filebeat/bin/filebeat -e -c sg-audit-filebeat-config.yml -d "publish" &

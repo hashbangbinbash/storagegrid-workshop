@@ -2,7 +2,7 @@ mkdir /root/Metricbeat
 cd /root/Metricbeat
 curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.8.0-x86_64.rpm
 sudo rpm -vi metricbeat-7.8.0-x86_64.rpm
-cp /root/git/storagegrid-workshop/Module-4/metricbeat.yml /etc/metricbeat/metricbeat.yml 
+cp /root/git/storagegrid-workshop/Module-3/metricbeat.yml /etc/metricbeat/metricbeat.yml 
 sudo metricbeat setup
 sudo metricbeat modules enable system
 sudo service metricbeat start

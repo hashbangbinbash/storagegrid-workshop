@@ -1,6 +1,6 @@
 /usr/share/logstash/bin/logstash -e 'input { stdin { } } output { stdout {} }'
 mkdir /root/logstash
-cp /root/git/storagegrid-workshop/Module-4/logstash-pipeline-* /root/logstash/
+cp /root/git/storagegrid-workshop/Module-3/logstash-pipeline-* /root/logstash/
 /usr/share/logstash/bin/logstash -f /root/logstash/logstash-pipeline-01.conf --config.test_and_exit
 /usr/share/logstash/bin/logstash -f /root/logstash/logstash-pipeline-01.conf 
 /usr/share/logstash/bin/logstash -f /root/logstash/logstash-pipeline-02.conf &
