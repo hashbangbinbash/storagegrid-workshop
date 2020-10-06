@@ -1,0 +1,72 @@
+{
+  "primary-admin-api-address": "10.1.0.2",
+  "grid-details": {
+    "name": "StorageGRID Deployment",
+    "license": "<Base64 encoded license text here>"
+  },
+  "passwords": {
+    "management": "<Update with valid password>",
+    "provision": "<Update with valid password>",
+    "useRandom": true
+  },
+  "ntp-servers": [
+    "10.1.1.1",
+    "10.2.2.2",
+    "10.3.3.3",
+    "10.4.4.4"
+  ],
+  "dns-servers": [
+    "10.5.5.5",
+    "10.6.6.6"
+  ],
+  "grid-networks": [
+    "10.1.0.0/24"
+  ],
+  "sites": [
+    {
+      "name": "Data Center 1"
+    },
+    {
+      "name": "Data Center 2"
+    }
+  ],
+  "nodes": {
+    "10.1.0.2": {
+      "nodeData": {
+        "name": "DC1-ADM1",
+        "ntpRole": "primary"
+      },
+      "siteName": "Data Center 1"
+    },
+    "10.1.0.3": {
+      "nodeData": {
+        "name": "DC1-G1"
+      },
+      "siteName": "Data Center 1"
+    },
+    "10.1.0.4": {
+      "nodeData": {
+        "name": "DC1-S1"
+      },
+      "siteName": "Data Center 1"
+    },
+    "10.1.0.5": {
+      "nodeData": {
+        "name": "DC1-S2"
+      },
+      "siteName": "Data Center 1"
+    },
+    "10.1.0.6": {
+      "nodeData": {
+        "name": "DC1-S3"
+      },
+      "siteName": "Data Center 1"
+    },
+    "10.1.0.7": {
+      "nodeData": {
+        "name": "DC2-ARC1"
+      },
+      "siteName": "Data Center 2"
+    }
+  }
+}

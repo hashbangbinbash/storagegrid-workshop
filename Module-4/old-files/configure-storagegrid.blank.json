@@ -1,0 +1,39 @@
+{
+  "primary-admin-api-address": "",
+  "grid-details": {
+    "name": "StorageGRID Deployment",
+    "license": ""
+  },
+  "passwords": {
+    "management": "",
+    "provision": "",
+    "useRandom": true
+  },
+  "ntp-servers": [
+    "",
+    "",
+    "",
+    ""
+  ],
+  "dns-servers": [
+    "",
+    ""
+  ],
+  "grid-networks": [
+    ""
+  ],
+  "sites": [
+    {
+      "name": ""
+    }
+  ],
+  "nodes": {
+    "": {
+      "nodeData": {
+        "name": ""
+      },
+      "siteName": ""
+    }
+  }
+}
+
