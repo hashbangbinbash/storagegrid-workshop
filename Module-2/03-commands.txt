@@ -1,2 +1,8 @@
+
 sg s3api put-bucket-lifecycle-configuration --bucket bucket-elasticsearch --lifecycle-configuration file:///root/git/storagegrid-workshop/Module-2/bucket-lifecycle-policy.json
 sg s3api get-bucket-lifecycle-configuration --bucket bucket-elasticsearch
+
+
+#### If you receive an error applying the bucket lifecycle policy try this workaround.
+yum swap python2-s3transfer python-s3transfer
+yum install awscli
