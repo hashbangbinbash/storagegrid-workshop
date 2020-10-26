@@ -21,7 +21,7 @@
     register: auth
  
   - name: Create a StorageGRID Tenant
-    nac_sg_grid_account:
+    na_sg_grid_account:
       api_url: "{{ grid_admin_base_url }}"
       auth_token: "{{ auth.json.data }}"
       validate_certs: false
