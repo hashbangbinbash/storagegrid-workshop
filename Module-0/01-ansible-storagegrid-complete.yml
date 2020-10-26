@@ -56,15 +56,15 @@
       auth_token: "{{ auth.json.data }}"
       validate_certs: false
       state: present
-      display_name: thePub-Patrons
-      unique_name: group/thepub-patrons
+      display_name: "{{ tenant_group_description }}"
+      unique_name: "group/{{ tenant_group }}"
       management_policy:
         manage_all_containers: true
         manage_endpoints: true
         manage_own_s3_credentials: false
         root_access: false
-      s3_policy: {"Statement":[{"Effect":"Allow","Action":"s3:*","Resource":"arn:aws:s3:::*"}]}
- 
+      s3_policy: {"Statement":[{"Effect":"Allow","Action":"s3:*","Resource":"arn:aws:s3:::*"}]} 
+
   - name: Create users
     na_sg_org_user:
       api_url: "{{ grid_admin_base_url }}"
@@ -73,8 +73,8 @@
       state: present
       full_name: "{{ item }}"
       unique_name: "user/{{ item }}"
-      member_of: "group/thepub-patrons"
-    with_items: "{{ users }}"
+      member_of: "group/{{ tenant_group }}"
+    with_items: "{{ tenant_users }}"
  
   - name: Create a s3 key for our users
     na_sg_org_user_s3_key:
