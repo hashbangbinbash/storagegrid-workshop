@@ -1,3 +1,2 @@
 sudo find / -name custom.conf
-sudo cp /etc/storagegrid-persistence.d/custom.conf /etc/storagegrid-persistence.d/custom.conf.bak
 sudo vi /etc/storagegrid-persistence.d/custom.conf
