@@ -6,7 +6,7 @@ mkdir ~/.aws
 aws_access_key_id = <S3-Access-Key>
 aws_secret_access_key = <S3-secret-key>
 
-aws s3 ls –profile storagegridlab –endpoint-url http://192.168.0.170:10443 
+aws s3 ls -–profile storagegridlab -–endpoint-url http://192.168.0.170:10443 
 
 
 # Alias for Storagegrid

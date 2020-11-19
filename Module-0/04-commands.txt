@@ -1,2 +1,2 @@
 yum install -y ansible
-ansible-galaxy collection install netapp.storagegrid
+ansible-galaxy collection install netapp.storagegrid:20.6.1

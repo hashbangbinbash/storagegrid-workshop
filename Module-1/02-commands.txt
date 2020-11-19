@@ -1,8 +1,8 @@
 openssl md5 -binary StorageGRID-11.3.0.zip | base64
 split -b 1024m StorageGRID-11.3.0.zip part-file-
-openssl md5 -binary part-fileaa | base64
-openssl md5 -binary part-fileab | base64
-openssl md5 -binary part-fileac | base64
+openssl md5 -binary part-file-aa | base64
+openssl md5 -binary part-file-ab | base64
+openssl md5 -binary part-file-ac | base64
 
 
 
