@@ -14,11 +14,12 @@ urn:demo:es:::demo/storagegrid-search/all
 
 for x in {1..100}
 do
+touch 
 echo "This is object number $x" > myobject$x.txt
 sg s3api put-object \
---metadata protect=poc, costcode=000$x \
+--metadata protect=poc,costcode=000$x \
 --bucket bucket-elasticsearch \
 --key myobject$x.txt \
---body myobject$x 
+--body myobject$x.txt 
 sleep 1
 done
