@@ -17,7 +17,7 @@ do
 touch 
 echo "This is object number $x" > myobject$x.txt
 sg s3api put-object \
---metadata protect=poc,costcode=000$x \
+--metadata project=poc,costcode=000$x \
 --bucket bucket-elasticsearch \
 --key myobject$x.txt \
 --body myobject$x.txt 
