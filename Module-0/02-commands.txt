@@ -1,3 +1,3 @@
-git clone https://netapp-my.sharepoint.com/:u:/p/nelim99/EeFTq2zsdIpIn6J1M2NnRdkBFlMKz119VY2mN1GFN-000g?e=SF2EPW
+https://netapp-my.sharepoint.com/:u:/p/nelim99/EeFTq2zsdIpIn6J1M2NnRdkBFlMKz119VY2mN1GFN-000g?e=SF2EPW
 sudo find / -name custom.conf
 sudo vi /etc/storagegrid-persistence.d/custom.conf
