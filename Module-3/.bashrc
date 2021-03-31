@@ -18,4 +18,4 @@ alias sg=sg_cmd
 if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
-export JAVA_HOME="/usr/bin/java"
+export JAVA_HOME="/usr/"
